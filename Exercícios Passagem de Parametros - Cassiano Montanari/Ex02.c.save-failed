@@ -1,0 +1,39 @@
+#include<stdio.h>
+#include<stdlib.h>
+#include<time.h>
+
+float valorA = 0;
+float valorB = 0;
+
+void soma(){
+    printf("%.2f + %.2f = %.2f",valorA, valorB,
+           (valorA + valorB));
+}
+
+void subtracao(int* valorA, int* valorB){
+    printf("%.2f - %.2f = %.2f", *valorA, *valorB, ((*valorA) + (*valorB)));
+}
+
+void multiplicacao(){
+    float result = 0;
+
+    result = valorA * valorB;
+
+    return result;
+}
+
+int main(){
+
+    printf("Digite o primeiro valor: ");
+    scanf("%f", &valorA);
+
+    printf("Digite o segundo valor: ");
+    scanf("%f", &valorB);
+
+    //soma();
+    //subtracao(&valorA, &valorB);
+
+    float mult = 0;
+    printf("%.2f x %.2f = %.2f", valorA, valorB, multiplicacao());
+}
+
