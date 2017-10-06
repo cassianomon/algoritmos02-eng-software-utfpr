@@ -1,0 +1,4 @@
+Ao imprimir v+4 irá imprimir 55004.
+
+Se o vetor for do tipo double irá imprimir: 55000 + (4*8).
+Se o vetor for do tipo int irá imprimir: 55000 + (4*4).
