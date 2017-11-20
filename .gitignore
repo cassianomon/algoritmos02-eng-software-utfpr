@@ -31,6 +31,8 @@ testem.log
 #System Files
 .DS_Store
 Thumbs.db
+*/**.zip
+*/*.zip
 *.zip
 *.7z
 *.dmg
