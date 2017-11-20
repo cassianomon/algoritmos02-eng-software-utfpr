@@ -9,7 +9,7 @@
 /bower_components
 
 # IDEs and editors
-/.idea
+/APS/.idea
 .project
 .classpath
 *.launch
@@ -23,6 +23,7 @@
 npm-debug.log
 testem.log
 /typings
+/APS/cmake-build-debug
 
 # e2e
 /e2e/*.js
