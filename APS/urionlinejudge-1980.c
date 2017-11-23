@@ -1,8 +1,9 @@
 #include <stdio.h>
 #include <string.h>
+#include <ctype.h>
 
-int fatorial(int a){
-    int result;
+double fatorial(long a){
+    long result;
 
     for (result = 1; a > 1; a--) {
         result = result * a;
@@ -11,25 +12,26 @@ int fatorial(int a){
     return result;
 }
 
-void lerPalavra(){
-    int tamanho, b;
-    char palavra[15];
-
-    scanf(" %s", palavra);
-
-    tamanho = strlen(palavra);
-
-    if (tamanho != 0) {
-        b = fatorial(tamanho);
-        printf("Retorno: %d\n", b);
-
-        lerPalavra();
-    } else {
-        return;
-    }
-}
-
 int main(){
-    lerPalavra();
+
+    long tamanho;
+    long b;
+    char palavra[15];
+    int stop = 0;
+
+    while(stop == 0){
+        scanf(" %s", palavra);
+
+        if (isalpha(palavra) == "0"){
+            stop = 1;
+            return 0;
+        }
+
+        tamanho = strlen(palavra);
+
+        b = fatorial(tamanho);
+        printf("%ld\n", b);
+    }
+
     return 0;
 }
