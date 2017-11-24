@@ -1,28 +1,29 @@
 #include <stdio.h>
 
 int main(){
+    int tamanho = 1000;
+    int escritorios[tamanho], e, q, i, j, k;
 
-    int q, e, i, j;
+    scanf("%d %d", &e, &q);
 
-    scanf("%d %d", &q, &e);
-
-    int si[e];
-    int ci[q];
-
-    for (i = 0; i < e; i++) {
-        scanf("%d", &si[i]);
+    // todos os escritorios recebem 1, não visitados
+    for (i = 0; i < tamanho; i++) {
+        escritorios[i] = 1;
     }
 
-    for (j = 0; j < q; j++) {
-        scanf("%d", &ci[j]);
+    // os escritorios que ele esteve na ultima semana recebem 0
+    for (i = 0; i < q; i++) {
+        scanf("%d", &j);
+        escritorios[j-1] = 0;
     }
 
-    for (i = 0, j = 0; j < q; j++){
-        if(si[i] == ci[j]){
+    for (i = 0; i < e; i++){
+        scanf("%d", &k);
+        if (escritorios[k-1] == 0){
             printf("0\n");
         } else {
             printf("1\n");
-            i++;
+            escritorios[k-1] = 0;
         }
     }
 
