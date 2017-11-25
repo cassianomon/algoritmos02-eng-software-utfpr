@@ -21,22 +21,21 @@ ll obterFatorial(long n){
 
 int main(){
     long tamanho;
-    long b;
+    ll b;
     char palavra[16];
 
     fatorial();
 
-    while(1){
-        scanf(" %[^\n]s", palavra);
+    while(scanf(" %s", palavra)){
 
-        if (strcmp(palavra, "0") == 0){
+        if ( *palavra == '0'){
             return 0;
         }
 
         tamanho = strlen(palavra);
 
         b = obterFatorial(tamanho);
-        printf("%ld\n", b);
+        printf("%lld\n", b);
     }
 
     return 0;
