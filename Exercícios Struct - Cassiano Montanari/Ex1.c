@@ -1,16 +1,11 @@
 #include <stdio.h>
 
-struct pessoa{
-    char nome[81];
-    char endereco[100];
-    char telefone[11];
+struct dados{
+    char nome[20];
+    char endereco[50];
+    int telefone[11];
 };
 
 int main(void){
-
-    int vet[5];
-
-    struct pessoa vet[5];
-
-    return 0;
+    struct dados vet[5];
 }

@@ -1,28 +1,18 @@
 #include <stdio.h>
 
-void **liberaMatriz(int** mat, int linha){
-    int i;
-    for (i = 0; i < linha; i++){
-        free (mat[i]);
-    }
 
-    free(mat);
+void binario(int n){
+    if (n == 1){
+        printf("1");
+    } else{
+        binario(n / 2);
+        printf("%d", n % 2);
+    }
 }
 
 int main(void){
-    int n, i;
-    int **matriz;
+    int n;
 
-    printf("Digite um valor: ");
     scanf("%d", &n);
-
-    matriz = malloc(n * sizeof(int *));
-    for (i = 0; i < n; i++){
-        matriz[i] = malloc(n * sizeof(int *));
-    }
-
-    liberaMatriz(matriz, n);
-
+    binario(n);
 }
-
-

@@ -1,31 +1,34 @@
 #include <stdio.h>
 
-struct ponto{
-    int x;
-    int y;
+struct Ponto{
+    int x, y;
 };
 
 int main(void){
+    struct Ponto ponto;
+    struct Ponto pontoInferior;
+    struct Ponto pontoSuperior;
+    int cont = 0;
+    do {
+        cont++;
+        if (cont > 1){
+            printf("O ponto inferior x e y deve ser menor do que o ponto superior x e y\n");
+        }
+        printf("Informe o ponto inferior x e y: ");
+        printf("\n");
+        scanf("%d %d", &pontoInferior.x, &pontoInferior.y);
+        printf("Informe o ponto superior x e y: ");
+        printf("\n");
+        scanf("%d %d", &pontoSuperior.x, &pontoSuperior.y);
 
-    int i;
-    int quantidade = 0;
+    }while ((pontoSuperior.x < pontoInferior.x) || (pontoInferior.y > pontoSuperior.y) || (pontoSuperior.x < pontoInferior.x) && (pontoInferior.y > pontoSuperior.y));
 
-    struct ponto pa = {0,0};
-    struct ponto pb = {10, 5};
-    struct ponto pc;
 
-    printf("\nInforme a primeira coordenada de um ponto: ");
-    scanf("%d", &pc.x);
-    printf("Informe a segunda coordenada de um ponto: ");
-    scanf("%d", &pc.y);
-
-    if((pc.x > pa.x && pc.x < pb.x) && (pc.y > pa.y && pc.y < pb.y)){
-        printf("\nO ponto esta dentro do retangulo.");
-    } else {
-        printf("\nO ponto esta fora do retangulo.");
+    if ((ponto.x > pontoInferior.x && ponto.x < pontoSuperior.x)  && (ponto.y > pontoInferior.y && ponto.y < pontoSuperior.y)){
+        printf("Dentro do Retangulo");
+    } else{
+        printf("Fora do Retangulo");
     }
 
-    printf("\n\n\n");
-
-    return 0;
 }
+

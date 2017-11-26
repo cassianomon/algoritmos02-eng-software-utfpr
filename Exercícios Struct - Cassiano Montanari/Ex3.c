@@ -1,46 +1,97 @@
 #include <stdio.h>
+#include <stdlib.h>
 
-typedef struct aluno Estudante;
-
-struct aluno{
-    char nome[81];
+struct dados{
     int RA;
-    float nota1;
-    float nota2;
-    float nota3;
+    char nome[20];
+    int p1;
+    int p2;
+    int p3;
 };
 
-int main(void){
+struct dados* alocar(int quantidade){
+    struct dados* vet;
 
-    int i;
-    int qtdAlunos = 0;
+    vet = (struct dados*) calloc(quantidade, sizeof(struct dados));
 
-    printf("Informe a quantidade de alunos: ");
-    scanf("%d", &qtdAlunos);
-
-    Estudante *matAluno = (Estudante*) malloc(qtdAlunos * sizeof(Estudante));
-
-    alocar(*matAluno, qtdAlunos);
-
-    return 0;
+    return vet;
 }
 
-int alocar(Aluno, qtdAlunos){
-    int i = 0;
-    for(i = 0; i < qtdAlunos; i++){
-        scanf("Nome Aluno[%d] %[^\n]s", i, Aluno[i].nome);
-        scanf("\nRA Aluno[%d]: %d", i, &Aluno[i].RA);
-        scanf("\nNota 1: %f", i, &Aluno[i].nota1);
-        scanf("\nNota 2: %f", i, &Aluno[i].nota2);
-        scanf("\nNota 3: %f", i, &Aluno[i].nota3);
+void imprimir(struct dados* vet, int quantidade){
+
+    int i, q = 0, p, p2, p3, k1, k2, k3, k = 0;
+    int aux, mg, auq, j = 0;
+
+    for (i = 0; i < quantidade; i++){
+        p = vet[i].p1;
+        aux = vet[q].p1;
+        if (p > aux){
+            q++;
+        }
     }
 
-    for(i = 0; i < qtdAlunos; i++){
-        printf("Aluno[%d]:\n", i);
-        printf("\nNome do aluno: %s", Aluno[i].nome);
-        printf("\nRA: %d", Aluno[i].RA);
-        printf("\nNota 1: %f", Aluno[i].nota1);
-        printf("\nNota 2: %f", Aluno[i].nota2);
-        printf("\nNota 3: %f\n\n", Aluno[i].nota3);
+   printf("O aluno com maior nota na prova 1: %s\n", vet[q].nome);
+
+    for (i = 0; i < quantidade; i++) {
+        p = vet[i].p1;
+        p2 = vet[i].p2;
+        p3 = vet[i].p3;
+        k1 = vet[j].p1;
+        k2 = vet[j].p2;
+        k3 = vet[j].p3;
+        mg = (p + p2 + p3) / 3;
+        auq = (k1 + k2 + k3) / 3;
+        if (mg > auq){
+            j++;
+        } else{
+            k = k + i;
+        }
     }
+    printf("O aluno com maior media geral: %s\n", vet[j].nome);
+    printf("O aluno com menor media geral: %s\n", vet[k].nome);
+
+    printf("Alunos aprovados: \n");
+
+    for (i = 0; i < quantidade; i++){
+        p = vet[i].p1;
+        p2 = vet[i].p2;
+        p3 = vet[i].p3;
+        mg = (p + p2 + p3) / 3;
+        if (mg > 6){
+            printf("%s\n", vet[i].nome);
+        }
+    }
+}
+
+void preencher(struct dados* vet, int quantidade){
+
+    int i;
+
+    for (i = 0; i < quantidade ; i++) {
+        printf("Informe o RA do aluno: \n");
+        scanf("%d", &vet[i].RA);
+        printf("Informe o nome do aluno: \n");
+        scanf("%s", vet[i].nome);
+        printf("Informe a nota da prova 1 do aluno: \n");
+        scanf("%d", &vet[i].p1);
+        printf("Informe a nota da prova 2 do aluno: \n");
+        scanf("%d", &vet[i].p2);
+        printf("Informe a nota da prova 3 do aluno: \n");
+        scanf("%d", &vet[i].p3);
+    }
+}
+
+int main(void){
+    int quantidade;
+    struct DADOS *lista;
+
+    printf("Informe a quantidade de alunos: \n");
+    scanf("%d", &quantidade);
+
+    lista = alocar(quantidade);
+
+    preencher(lista, quantidade);
+
+    imprimir(lista, quantidade);
+
 }
